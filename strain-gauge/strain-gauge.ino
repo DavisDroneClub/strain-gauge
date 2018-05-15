@@ -10,11 +10,17 @@
 HX711 scale(A1,A0);
 
 void setup() {
-  Serial.begin(38400);
-  
-  scale.set_scale(2280.f);
+  Serial.begin(115200);
+  Serial.println("Begin testing");
+  scale.set_scale(826.1);
+  scale.tare();
+  //Serial.println("Place weight now");
+  //delay(5000);
+  //Serial.println("too late");
+  //Serial.println((scale.get_units(10))/1050);
+  //scale.tare();
 }
 
 void loop() {
-  Serial.println(scale.read());
+  Serial.println(scale.get_units(),1);
 }
